@@ -1,0 +1,144 @@
+body{
+   /* 指定字體 */
+   font-family: "標楷體";
+}
+
+a{
+	text-decoration : none;
+}
+
+a:hover {
+	color :#0000ff
+} 
+
+.background-1{
+	background-color:#C8DAF9;
+	padding:5px;
+	width:850px;
+	font-size:20px;
+}
+
+.datafield{
+	font-family:"標楷體", arial,serif,Georgia;
+}
+
+.textType2{
+	font-family:"標楷體", arial,serif,Georgia;
+}
+
+.test1{
+	background: #CCFF33;
+}
+
+.display_msg{
+	color:#ff0000;
+	margin:10px;
+}
+
+.black-box{
+	border:1px solid black;
+	width:20px;
+	height:5px;
+	background-color:#000000;
+
+}
+
+.white-box{
+	border:1px solid black;
+	width:20px;
+	height:5px;
+	background-color:#ffffff;
+}
+
+.login_txtbox{
+  font-size: 18px;
+  padding: 3px;
+  width: 200px;
+  font-family: helvetica, arial, sans-serif;
+}
+
+.input_box_1{
+  font-size: 18px;
+  padding: 3px;
+  width: 200px;
+  font-family: helvetica, arial, sans-serif;
+}
+
+/* tables */
+table.stable {
+	font-family:arial;
+	background-color: #CDCDCD;
+	margin:10px 0pt 15px;
+	font-size: 8pt;
+	width: 100%;
+	text-align: left;
+}
+
+table.stable thead tr th, table.tablesorter tfoot tr th {
+	background-color: #e6EEEE;
+	border: 1px solid #FFF;
+	font-size: 10pt;
+	padding: 2px;
+}
+
+table.stable thead tr .header {
+	background-image: url(bg.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+}
+
+table.stable tbody td {
+	color: #3D3D3D;
+	padding: 4px;
+	background-color: #FFF;
+	vertical-align: top;
+}
+table.stable tbody tr.odd td {
+	background-color:#F0F0F6;
+}
+table.stable thead tr .headerSortUp {
+	background-image: url(../images/asc.gif);
+}
+table.stable thead tr .headerSortDown {
+	background-image: url(../images/desc.gif);
+}
+table.stable thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
+	background-color: #8dbdd8;
+}
+
+
+
+
+.fg-button {
+	outline: 0; margin:0 4px 0 0;
+	padding: .1em 1em;
+	text-decoration:none !important;
+	cursor:pointer;
+	position: relative;
+	text-align: center;
+	background-color:#FFCC00;
+}
+
+.fg-button .ui-icon { position: absolute; top: 50%; left: 50%;}
+
+a.fg-button { float:left; }
+
+/* remove extra button width in IE */
+button.fg-button { width:auto; overflow:visible; }
+
+.fg-button-icon-left { padding-left: 2.1em; }
+.fg-button-icon-right { padding-right: 2.1em; }
+.fg-button-icon-left .ui-icon { right: auto; left: .2em; margin-left: 0; }
+.fg-button-icon-right .ui-icon { left: auto; right: .2em; margin-left: 0; }
+
+.fg-button-icon-solo { display:block; width:8px; text-indent: -9999px; }	 /* solo icon buttons must have block properties for the text-indent to work */	
+
+.fg-buttonset { float:left; }
+.fg-buttonset .fg-button { float: left; }
+.fg-buttonset-single .fg-button, 
+.fg-buttonset-multi .fg-button { margin-right: -1px;}
+
+.fg-toolbar { padding: .5em; margin: 0;  }
+.fg-toolbar .fg-buttonset { margin-right:1.5em; padding-left: 1px; }
+.fg-toolbar .fg-button { font-size: 1em;  }

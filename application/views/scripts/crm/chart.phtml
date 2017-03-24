@@ -1,0 +1,102 @@
+<?php $bookmark = $_GET["bookmark"]; ?>
+<HTML>
+<HEAD>
+<TITLE> 電腦教室 </TITLE>
+<meta charset="UTF-8">
+<link href="<?php echo $this->baseUrl('css/bootstrap.css') ?>" rel="stylesheet" />
+<link href="<?php echo $this->baseUrl('font-awesome-4.7.0/css/font-awesome.css') ?>" rel="stylesheet" />
+<script src="<?php echo $this->baseUrl('js/jquery-1.11.3.min.js') ?>"></script>
+<script src="<?php echo $this->baseUrl('js/bootstrap.js') ?>"></script>
+</HEAD>
+<style>
+body{
+    font-family: Microsoft JhengHei;
+}
+</style>
+
+<body>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<form class="form-inline"  method='post' action="<?php echo $this->baseUrl('crm/chart?bookmark=table_chart');?>">
+				<div class="form-group">
+					<label>學年</label>
+					<select class="form-control" name="school_year">
+						<option value="105">105</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label>學期</label>
+					<select class="form-control" name="semester">
+						<option value="1">上</option>
+						<option value="2">下</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<input name="action" type="submit" class="btn btn-default" value="查詢" />
+				</div>
+			</form>
+
+			<div style="<?php echo($bookmark!='table_chart')?'display:none':''; ?>">
+				<table class="table table-bordered" cellspacing="0" width="100%">
+					<thead>
+						<tr class="success">
+							<th width="15%">科系</th>
+							<th width="20%">電腦教室名稱</th>
+							<th width="8%">個人電腦</br>數量</th>
+							<th width="8%">每週上課</br>班數</th>
+							<th width="8%">每週上課</br>總人數</th>
+							<th width="8%">每週上課</br>總時數</th>
+							<th width="10%">每週每部電腦</br>平均使用人次</th>
+							<th width="10%">每週上課時間</br>使用率</th>
+							<th width="0%">備註</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php 
+						$chartlist = $this->chart ;
+						if($chartlist){ 
+							$c_array=array();
+							$now_department="";
+							
+							foreach($chartlist as $chart){
+								$c_array[$chart['id']] = $chart['department'];
+							}
+
+							$count_room = array_count_values($c_array);  //算教室有幾間
+							$now_department = "";
+							foreach($chartlist as $chart){
+								
+								echo "<tr>";
+
+									if($now_department == ""){
+										echo "<td rowspan='".$count_room[$chart['department']]."'>".$chart['department']."</td>";
+										$now_department = $chart['department'];
+									}else if($now_department != $chart['department']){
+										echo "<td rowspan='".$count_room[$chart['department']]."'>".$chart['department']."</td>";
+										$now_department = $chart['department'];
+									}
+
+									echo "<td>".$chart['room_num'].$chart['room_name']."</td>";
+									echo "<td>".$chart['pc_num']."</td>";
+									echo "<td>".$chart['lecture_num']."</td>";
+									echo "<td>".$chart['total_s_num']."</td>";
+									echo "<td>".$chart['total_hour']."</td>";
+									echo "<td>".$chart['avg_s_num']."</td>";
+									echo "<td>".$chart['avg_hour']."%</td>";
+									echo "<td></td>";
+								echo "</tr>";
+							}
+						}else{
+							echo "<tr><td colspan='7'>目前各系皆尚未輸入電腦教室使用調查表</td></tr>";
+						}
+
+						?>	    
+					</tbody>
+				</table>		
+			</div> <!-- table_chart -->
+		</div> <!-- col-md-12 -->
+	</div>  <!-- row -->
+</div>
+</body>
+</HTML>
