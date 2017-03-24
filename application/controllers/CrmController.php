@@ -60,7 +60,7 @@ class CrmController extends Zend_Controller_Action
 		
 		$school_year = 105;
 		$semester = 2;
-		$department     = '財務金融系'; 
+		$department     = '電子工程系'; 
 				//科系
 	
 		////////////////////////step1/////////////////////////
